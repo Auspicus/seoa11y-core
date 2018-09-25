@@ -1,0 +1,80 @@
+@import '~breakpoint-sass/stylesheets/breakpoint';
+@import '../../assets/styles/base/variables';
+
+.url-list {
+  margin: 0 auto;
+  border: 1rem solid $purple;
+  border-radius: .25rem;
+
+  @include breakpoint($bp-tablet-sm) {
+    border-width: 2rem;
+    border-top-width: 1rem;
+  }
+
+  table {
+    border-top: 1rem solid $purple;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+
+    thead {
+      background: $purple;
+      color: $white;
+    }
+
+    span {
+      display: inline-block;
+
+      @include breakpoint($bp-tablet-sm) {
+        display: none;
+      }
+    }
+
+    svg {
+      display: none;
+
+      @include breakpoint($bp-tablet-sm) {
+        display: inline-block;
+      }
+    }
+
+    td:nth-child(4n+1),
+    th:nth-child(4n+1) {
+      width: 100%;
+
+      @include breakpoint($bp-tablet-sm) {
+        width: 70%;
+      }
+    }
+
+    td:nth-child(4n+4),
+    th:nth-child(4n+4),
+    td:nth-child(4n+3),
+    th:nth-child(4n+3),
+    td:nth-child(4n+2),
+    th:nth-child(4n+2), {
+      display: none;
+
+      @include breakpoint($bp-tablet-sm) {
+        display: table-cell;
+        width: 10%;
+      }
+    }
+
+    td,
+    th {
+      padding: .5rem;
+    }
+
+    tbody {
+      font-family: monospace;
+      font-size: 1.25rem;
+
+      tr:nth-child(odd) {
+        background: $dark-white;
+        padding: .5rem;
+        box-sizing: content-box;
+      }
+    }
+  }
+}

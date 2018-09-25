@@ -1,0 +1,14 @@
+.clickable,
+%clickable {
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+a {
+  @extend %clickable;
+  text-decoration: inherit;
+  color: inherit;
+}

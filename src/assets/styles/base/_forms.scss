@@ -1,0 +1,177 @@
+@import './links';
+
+textarea,
+input[type="text"],
+input[type="button"],
+input[type="submit"],
+input[type="email"],
+input[type="password"] {
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+
+button {
+  @extend %clickable;
+  margin: 0;
+  border: 0;
+  border-radius: 3px;
+  background: $purple;
+  padding: 1rem;
+  text-transform: uppercase;
+  color: $white;
+  font-size: 14px;
+  font-weight: bold;
+
+  &.large {
+    padding: 1.25rem;
+  }
+
+  &.image {
+    background: $white;
+    padding: .25rem;
+  }
+}
+
+.form-centered-wrapper,
+%form-centered-wrapper {
+  .form,
+  %form {
+    padding: 2rem;
+
+    @include breakpoint($bp-mobile) {
+      padding: 2rem 4rem;
+    }
+  }
+
+  .form-text,
+  %form-text {
+    color: $white;
+    font-size: $font-sm;
+
+    @include breakpoint($bp-mobile) {
+      font-size: $font-md;
+    }
+  }
+
+  .form-input,
+  %form-input {
+    @extend %form-text;
+    display: block;
+    transition: box-shadow .5s ease;
+    margin: 0 0 .75rem;
+    border: 0;
+    padding: .5rem;
+    width: 100%;
+    color: $black;
+    box-sizing: border-box;
+
+    @include breakpoint($bp-mobile) {
+      margin: 0 0 1rem;
+    }
+
+    &.green:focus {
+      outline: 0;
+      box-shadow: 0 0 0 3px $light-green;
+    }
+
+    &.blue:focus {
+      outline: 0;
+      box-shadow: 0 0 0 3px $light-blue;
+    }
+  }
+
+  .form-submit,
+  %form-submit {
+    @extend %form-text;
+    @extend %clickable;
+    margin-top: 1.5rem;
+    font-weight: bold;
+
+    &.blue {
+      border-bottom: solid 4px $blue;
+      background: $light-blue;
+    }
+
+    &.green {
+      border-bottom: solid 4px $green;
+      background: $light-green;
+    }
+
+    &:focus,
+    &:hover {
+      box-shadow: none;
+    }
+  }
+
+  .form-label,
+  %form-label {
+    @extend %form-text;
+    display: block;
+    margin-bottom: .25rem;
+
+    @include breakpoint($bp-mobile) {
+      margin-bottom: .5rem;
+    }
+  }
+
+  .form-link,
+  %form-link {
+    @extend %form-text;
+    @extend %clickable;
+    font-size: $font-xs;
+
+    @include breakpoint($bp-mobile) {
+      font-size: $font-sm;
+    }
+  }
+
+  margin: 4rem 0 0;
+  border-radius: 5px;
+  background-color: $purple;
+
+  @include breakpoint($bp-mobile) {
+    margin: 4rem auto 0;
+    width: 360px;
+  }
+
+  > form {
+    @extend %form;
+
+    > label {
+      @extend %form-label;
+    }
+
+    > input {
+      @extend %form-input;
+    }
+
+    > input[type="submit"] {
+      @extend %form-submit;
+    }
+
+    > a {
+      @extend %form-link;
+    }
+  }
+}
+
+.form-wrapper {
+  @extend %form-centered-wrapper;
+  margin: 0;
+  border-top-left-radius: 0;
+  padding: 1rem;
+  width: 100%;
+  text-align: center;
+  color: $white;
+  box-sizing: border-box;
+
+  form {
+    margin: 0 auto;
+    padding: 0;
+
+    @include breakpoint($bp-mobile) {
+      padding: 0;
+      max-width: 350px;
+    }
+  }
+}

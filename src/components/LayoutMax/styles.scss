@@ -1,0 +1,27 @@
+@import '~breakpoint-sass/stylesheets/breakpoint';
+@import '../../assets/styles/base/variables';
+
+$bp-desktop: 1100px;
+$bp-tablet: 640px;
+
+$max-width: 1080px;
+
+.layout-max,
+%layout-max {
+  position: relative;
+  margin: 1rem;
+
+  @include breakpoint($bp-tablet) {
+    margin: 2rem;
+  }
+
+  @include breakpoint($bp-desktop) {
+    margin: 2rem auto;
+    max-width: $max-width;
+  }
+
+  h1,
+  h2 {
+    color: $purple;
+  }
+}

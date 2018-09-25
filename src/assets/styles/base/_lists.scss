@@ -1,0 +1,15 @@
+ul {
+  &.inline {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  &.right {
+    float: right;
+
+    li {
+      float: left;
+    }
+  }
+}

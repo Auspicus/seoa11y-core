@@ -1,0 +1,63 @@
+@import '~breakpoint-sass/stylesheets/breakpoint';
+@import '../../assets/styles/base/variables';
+
+.promo,
+%promo {
+  display: block;
+  margin: 0;
+  padding: 2rem 1rem;
+
+  @include breakpoint(1020px) {
+    display: flex;
+    padding: 2rem;
+  }
+}
+
+.centered {
+  @extend %promo;
+  display: block;
+  text-align: center;
+
+  @include breakpoint(1020px) {
+    max-width: none;
+  }
+}
+
+.promo__side {
+  flex: 1 1 100%;
+  padding: 1rem 2rem;
+  text-align: center;
+
+  @include breakpoint($bp-tablet) {
+    &:nth-child(2n+1) {
+      text-align: right;
+    }
+
+    &:nth-child(2n) {
+      text-align: left;
+    }
+  }
+
+  @include breakpoint(1020px) {
+    flex: 1 1 50%;
+  }
+}
+
+.promo__title {
+  margin-top: 0;
+  font-size: $font-xl;
+
+  &.green {
+    color: $light-green;
+  }
+
+  &.blue {
+    color: $light-blue;
+  }
+}
+
+.promo__subtitle {
+  color: rgba(100, 100, 100, 0.9);
+  font-size: $font-lg;
+  font-weight: 300;
+}

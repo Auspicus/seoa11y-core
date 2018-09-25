@@ -1,0 +1,35 @@
+// Progress Circle
+//
+// A progress circle
+//
+// Markup: progress-circle.twig
+//
+// Style guide: components.progress-circle
+
+.progress-circle__wrapper,
+%progress-circle__wrapper {
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+}
+
+.progress-circle__text,
+%progress-circle__text {
+  font-size: 1.7rem;
+  text-align: center;
+  padding: 1rem 0 2.5rem;
+  line-height: 1.5;
+}
+
+.progress-circle__percent,
+%progress-circle__percent {
+  position: absolute;
+  bottom: 115px;
+  font-size: 24px;
+}
+
+.progress-circle {
+  width: 250px;
+  height: 250px;
+}

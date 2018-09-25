@@ -1,0 +1,28 @@
+easae/seoa11y-core:
+  # Distelli Manifest example
+  # this example assumes the build and deploy servers are:
+  # Ubuntu 14.04
+  Env:
+    - ASYNC_CONCURRENCY: '1'
+
+  PreBuild:
+    - sudo apt-get -y update
+    - sudo apt-get -y install build-essential libssl-dev curl
+    - curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | bash
+  Build:
+    - nvm install 6
+    - nvm use 6
+    - npm install
+    - npm run build
+
+  PkgInclude:
+    - 'build/'
+    - 'node_modules/'
+    - 'web.js'
+
+  Start:
+    - sudo npm install -g pm2
+    - sudo pm2 stop all || true
+    - sudo pm2 delete all || true
+    - sudo pm2 flush
+    - sudo ASYNC_CONCURRENCY=$ASYNC_CONCURRENCY pm2 start web.js --merge-logs --log-date-format="YYYY-MM-DD HH:mm Z"

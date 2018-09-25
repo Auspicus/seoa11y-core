@@ -1,0 +1,44 @@
+@import '../../assets/styles/base/variables';
+
+.error-popup {
+  transform: translate(10px);
+  z-index: 1;
+  margin-bottom: .25rem;
+  border-left: solid 8px $light-red;
+  background: $red;
+  padding: .5rem;
+
+  span {
+    line-height: 16px;
+    color: $white;
+    font-weight: 700;
+  }
+
+  button {
+    display: inline-block;
+    margin-left: 1rem;
+    background: none;
+    padding: 0;
+    width: 16px;
+    height: 16px;
+    vertical-align: text-bottom;
+  }
+}
+
+.error-popup-enter {
+  transform: translate(-100%);
+}
+
+.error-popup-enter.error-popup-enter-active {
+  transform: translate(10px);
+  transition: transform 300ms ease-in;
+}
+
+.error-popup-leave {
+  transform: translate(10px);
+}
+
+.error-popup-leave.error-popup-leave-active {
+  transform: translate(-100%);
+  transition: transform 300ms ease-in;
+}
